@@ -1,6 +1,6 @@
 <script>
-  import Grid from '$lib/Grid.svelte'
-  import Card from '$lib/Card.svelte';
+  import Grid from '$library/Grid.svelte'
+  import Card from '$library/Card.svelte';
 
   /** @type {import('./$types').PageData */
   export let data;

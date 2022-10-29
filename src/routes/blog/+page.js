@@ -1,7 +1,7 @@
 
 export const prerender = true;
 
-import { getMetadata } from '$lib/utilities/metadata.js'
+import { getMetadata } from '$library/utilities/metadata.js'
 
 export async function load() {
   const postsMetadata = getMetadata(

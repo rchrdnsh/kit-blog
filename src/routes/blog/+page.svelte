@@ -1,7 +1,7 @@
 <script>
-  import Container from '$lib/Container.svelte';
-  import Grid from '$lib/Grid.svelte';
-  import Card from '$lib/Card.svelte';
+  import Container from '$library/Container.svelte';
+  import Grid from '$library/Grid.svelte';
+  import Card from '$library/Card.svelte';
 
   /** @type {import('./$types').PageData */
   export let data;

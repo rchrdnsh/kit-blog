@@ -5,7 +5,7 @@ description: This is the 2nd post.
 ---
 
 <script context="module">
-  import Wave from '$lib/Wave.svelte'
+  import Wave from '$library/Wave.svelte'
   metadata.icon = Wave;
 </script>
 

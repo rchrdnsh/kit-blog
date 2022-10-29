@@ -1,6 +1,6 @@
 <script>
-  import Container from '$lib/Container.svelte';
-  import Article from '$lib/Article.svelte';
+  import Container from '$library/Container.svelte';
+  import Article from '$library/Article.svelte';
 
   export let data;
   let { title, description, image, content } = data;

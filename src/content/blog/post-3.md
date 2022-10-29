@@ -5,7 +5,7 @@ description: This is the 3rd post.
 ---
 
 <script context="module">
-  import Logo from '$lib/Logo.svelte';
+  import Logo from '$library/Logo.svelte';
   metadata.icon = Logo;
 </script>
 

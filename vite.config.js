@@ -1,6 +1,5 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { imagetools } from 'vite-imagetools';
-// import mkcert from 'vite-plugin-mkcert';
 
 /** @type {import('vite').UserConfig} */
 
@@ -33,7 +32,6 @@ const config = {
     //     }
     //   },
     // ),
-    // mkcert({hosts: ['localhost', 'app.local']})
   ]
 };
 

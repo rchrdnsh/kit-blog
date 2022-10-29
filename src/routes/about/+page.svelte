@@ -1,6 +1,6 @@
 <script>
-  import Container from '$lib/Container.svelte';
-  import Counter from '$lib/Counter.svelte';
+  import Container from '$library/Container.svelte';
+  import Counter from '$library/Counter.svelte';
 </script>
 
 <svelte:head>

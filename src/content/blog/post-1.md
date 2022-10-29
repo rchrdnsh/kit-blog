@@ -5,7 +5,7 @@ description: This is the 1st post.
 ---
 
 <script context="module">
-  import Clock from '$lib/Clock.svelte'
+  import Clock from '$library/Clock.svelte'
   metadata.icon = Clock;
 </script>
 
