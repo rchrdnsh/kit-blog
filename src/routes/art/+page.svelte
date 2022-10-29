@@ -1,25 +1,12 @@
-<script context="module">
-  throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
-
-
-  // export const prerender = true;
-
-  // import { getMetadata } from '$lib/utilities/metadata.js'
-
-  // export async function load() {
-  //   const piecesMetadata = getMetadata(import.meta.globEager('/src/content/art/*.md'));
-  //   return { props: { pieces: piecesMetadata } };
-  // };
-</script>
-
 <script>
-  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
   import Container from '$lib/Container.svelte';
   import Grid from '$lib/Grid.svelte';
   import Card from '$lib/Card.svelte';
-  
-  export let pieces;
+
+  /** @type {import('./$types').PageData */
+  export let data;
+  let { pieces } = data;
+  $: ( { pieces } = data ); // so it stays in sync when `data` changes
 </script>
 
 <svelte:head>

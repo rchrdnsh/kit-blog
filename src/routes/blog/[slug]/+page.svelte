@@ -1,13 +1,11 @@
 <script>
-  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
   import Container from '$lib/Container.svelte';
   import Article from '$lib/Article.svelte';
 
-  export let title;
-  export let description;
-  export let icon;
-  export let content;
+  /** @type {import('./$types').PageData */
+  export let data;
+  let { title, description, icon, content } = data;
+  $: ( { title, description, icon, content } = data ); // so it stays in sync when `data` changes
 </script>
 
 <svelte:head>
