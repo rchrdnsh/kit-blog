@@ -1,26 +1,30 @@
 <script context="module">
+  throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
 
-  export const prerender = true;
 
-  import { getMetadata } from '$lib/utilities/metadata.js'
+  // export const prerender = true;
 
-  export async function load() {
-    const postsMetadata = getMetadata(import.meta.globEager('/src/content/blog/*.md'));
-    const headlinesMetadata = getMetadata(import.meta.globEager('/src/content/news/*.md'));
-    const piecesMetadata = getMetadata(import.meta.globEager('/src/content/art/*.md'));
+  // import { getMetadata } from '$lib/utilities/metadata.js'
 
-    return {
-      props: {
-        posts: postsMetadata,
-        headlines: headlinesMetadata,
-        pieces: piecesMetadata
-      }
-    };
-  };
-  
+  // export async function load() {
+  //   const postsMetadata = getMetadata(import.meta.globEager('/src/content/blog/*.md'));
+  //   const headlinesMetadata = getMetadata(import.meta.globEager('/src/content/news/*.md'));
+  //   const piecesMetadata = getMetadata(import.meta.globEager('/src/content/art/*.md'));
+
+  //   return {
+  //     props: {
+  //       posts: postsMetadata,
+  //       headlines: headlinesMetadata,
+  //       pieces: piecesMetadata
+  //     }
+  //   };
+  // };
+  // 
 </script>
 
 <script>
+  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
   import Grid from '$lib/Grid.svelte'
   import Card from '$lib/Card.svelte';
 

@@ -1,21 +1,6 @@
-<script context='module'>
-
-  export const prerender = true;
-
-  export async function load({ params }) {
-    const Headline = await import(`../../content/news/${params.slug}.md`);
-    return {
-      props: {
-        title: Headline.metadata.title,
-        description: Headline.metadata.description,
-        image: Headline.metadata.image,
-        content: Headline.default,
-      }
-    };
-  };
-</script>
-
 <script>
+  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
   import Container from '$lib/Container.svelte';
   import Article from '$lib/Article.svelte';
 
