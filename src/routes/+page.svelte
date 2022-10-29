@@ -5,9 +5,7 @@
   /** @type {import('./$types').PageData */
   export let data;
   let { headlines, pieces, posts } = data;
-  $: ({ foo, bar } = data); // so it stays in sync when `data` changes
-
-  $: console.log({ foo, bar });
+  $: ( { headlines, pieces, posts } = data );
 </script>
 
 <svelte:head>

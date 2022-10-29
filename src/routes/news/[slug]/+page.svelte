@@ -2,6 +2,7 @@
   import Container from '$lib/Container.svelte';
   import Article from '$lib/Article.svelte';
 
+  export let data;
   let { title, description, image, content } = data;
   $: ( { title, description, image, content } = data ); // so it stays in sync when `data` changes
 </script>

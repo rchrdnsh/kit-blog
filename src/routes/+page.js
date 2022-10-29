@@ -4,9 +4,9 @@ export const prerender = true;
 import { getMetadata } from '$lib/utilities/metadata.js'
 
 export async function load() {
-  const postsMetadata = getMetadata(import.meta.globEager('/src/content/blog/*.md'));
-  const headlinesMetadata = getMetadata(import.meta.globEager('/src/content/news/*.md'));
-  const piecesMetadata = getMetadata(import.meta.globEager('/src/content/art/*.md'));
+  const postsMetadata = getMetadata(import.meta.glob('/src/content/blog/*.md', {eager: true}));
+  const headlinesMetadata = getMetadata(import.meta.glob('/src/content/news/*.md', {eager: true}));
+  const piecesMetadata = getMetadata(import.meta.glob('/src/content/art/*.md', {eager: true}));
 
   return {
   posts: postsMetadata,

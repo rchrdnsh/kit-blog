@@ -8,7 +8,7 @@
 
 </script>
 
-<a sveltekit:prefetch href={`/${route}/${slug}`}  class='card'>
+<a sveltekit-data-prefetch href={`/${route}/${slug}`}  class='card'>
   <h1 class='title'>{title}</h1>
   <p class='description'>{description}</p>
   {#if image}
