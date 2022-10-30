@@ -2,8 +2,12 @@
 status: published
 title: Headline Three
 description: This is the 3rd headline.
-image: /svg/steps.svg
 ---
+
+<script context="module">
+  import image from './images/steps.svg';
+  metadata.image = image;
+</script>
 
 # Heading for Post 3
 

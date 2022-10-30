@@ -18,10 +18,10 @@
   <h1 class='category'>News Headlines</h1>
 
   <Grid>
-    {#each headlines as {slug, title, description, image}}
+    {#each headlines as {folderslug, title, description, image}}
       <Card
         route={'news'}
-        slug={slug}
+        slug={folderslug}
         title={title}
         description={description}
         image={image}

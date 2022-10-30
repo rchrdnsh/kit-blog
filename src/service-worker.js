@@ -1,7 +1,7 @@
-import { build, files, timestamp } from '$service-worker';
+import { build, files, version } from '$service-worker';
  
 const worker = self;
-const CACHE_NAME = `static-cache-${timestamp}`;
+const CACHE_NAME = `static-cache-${version}`;
  
 const to_cache = build.concat(files);
  

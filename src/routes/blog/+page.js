@@ -6,7 +6,7 @@ import { getMetadata } from '$library/utilities/metadata.js'
 export async function load() {
   const postsMetadata = getMetadata(
     import.meta.glob(
-      '/src/content/blog/*.md',
+      '/src/content/blog/**/+content.md',
       {eager: true}
     )
   );

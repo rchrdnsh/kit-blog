@@ -18,10 +18,10 @@
   <h1 class='category'>Art Pieces</h1>
 
   <Grid>
-    {#each pieces as {slug, title, description, image}}
+    {#each pieces as {folderslug, title, description, image}}
       <Card
         route={'art'}
-        slug={slug}
+        slug={folderslug}
         title={title}
         description={description}
         image={image}

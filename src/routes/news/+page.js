@@ -6,7 +6,7 @@ import { getMetadata } from '$library/utilities/metadata.js'
 export async function load() {
   const headlinesMetadata = getMetadata(
     import.meta.glob(
-      '/src/content/news/*.md',
+      '/src/content/news/**/+content.md',
       {eager: true}
     )
   );

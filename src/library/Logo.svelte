@@ -49,7 +49,7 @@
 		width: 100%;
 		height: 100%;
 		background-color: #fff;
-		-webkit-mask: url('/svg/svelte-logo-mask.svg') 50% 50% no-repeat;
-		mask: url('/svg/svelte-logo-mask.svg') 50% 50% no-repeat;
+		-webkit-mask: url('/img/svelte-logo-mask.svg') 50% 50% no-repeat;
+		mask: url('/img/svelte-logo-mask.svg') 50% 50% no-repeat;
 	}
 </style>

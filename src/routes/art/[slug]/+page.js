@@ -2,11 +2,13 @@
 export const prerender = true;
 
 export async function load({ params }) {
-  const Piece = await import(`../../../content/art/${params.slug}.md`);
+  const Piece = await import(
+    `../../../content/art/${params.slug}/+content.md`
+  );
   return {
-  title: Piece.metadata.title,
-  description: Piece.metadata.description,
-  image: Piece.metadata.image,
-  content: Piece.default,
-}
+    title: Piece.metadata.title,
+    description: Piece.metadata.description,
+    image: Piece.metadata.image,
+    content: Piece.default,
+  }
 }

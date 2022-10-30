@@ -18,10 +18,10 @@
   <h1 class='category'>Blog Posts</h1>
 
   <Grid>
-    {#each posts as {slug, title, description, icon}}
+    {#each posts as {folderslug, title, description, icon}}
       <Card
         route={'blog'}
-        slug={slug}
+        slug={folderslug}
         title={title}
         description={description}
         icon={icon}

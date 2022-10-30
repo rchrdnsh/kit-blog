@@ -2,8 +2,12 @@
 status: published
 title: Headline Two
 description: This is the 2nd headline.
-image: /svg/circles.svg
 ---
+
+<script context="module">
+  import image from './images/circles.svg';
+  metadata.image = image;
+</script>
 
 # Heading for Headline 2
 
