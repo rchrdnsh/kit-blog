@@ -1,4 +1,6 @@
 <script>
+  import Picture from '$library/Picture.svelte';
+
   export let content = '';
   export let title = '';
   export let description = '';
@@ -13,7 +15,8 @@
   </div>
   {#if image}
     <div class='icon'>
-      <img src={image} alt="A lovely piece of art or something else, I don't know."/>
+      <!-- <img src={image} alt="A lovely piece of art or something else, I don't know."/> -->
+      <Picture src={image} alt="A lovely piece of art or something else, I don't know."/>
     </div>
   {:else if icon}
     <div class='icon'>
@@ -92,11 +95,5 @@
     justify-items: center;
     background-color: white;
     row-gap: 16px;
-  }
-
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 16px
   }
 </style>
