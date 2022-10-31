@@ -8,7 +8,7 @@
 </script>
 
 {#if typeof src === 'string'}
-  <img class:article={article === true} src={src} alt={alt}/>
+  <img class:article={article === true} src={src} alt={alt} width={`500`} height={`500`}/>
 {:else if typeof src === 'object'}
   <picture class:article={article === true}>
     {#each Object.entries(src.sources) as [format, images]}
