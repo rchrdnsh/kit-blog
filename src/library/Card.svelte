@@ -1,11 +1,12 @@
 <script>
+  import Picture from '$library/Picture.svelte';
+
   export let route = '';
   export let slug = '';
   export let title = '';
   export let description = '';
   export let image = '';
   export let icon = '';
-
 </script>
 
 <a sveltekit-data-prefetch href={`/${route}/${slug}`}  class='card'>
@@ -13,7 +14,8 @@
   <p class='description'>{description}</p>
   {#if image}
     <div class='icon'>
-      <img src={image} alt="A lovely piece of art or something else, I don't know."/>
+      <!-- <img src={image} alt="A lovely piece of art or something else, I don't know."/> -->
+      <Picture src={image} alt="A lovely piece of art or something else, I don't know."/>
     </div>
   {:else if icon}
     <div class='icon'>
@@ -68,11 +70,5 @@
   .icon {
     width: 8rem;
     height: 8rem;
-  }
-
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 16px;
   }
 </style>

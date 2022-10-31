@@ -16,10 +16,10 @@
     "rehype-autolink-headings": "^5.0.1",
     "rehype-slug": "^4.0.1",
     "remark-abbr": "^1.4.1",
-    "svelte": "^3.46.2",
+    "svelte": "^3.52.0",
     "svelte-preprocess": "^4.10.7",
     "unist-util-visit": "^4.0.0",
-    "vite": "3.1.0",
+    "vite": "3.2.2",
     "vite-imagetools": "^4.0.11"
   },
   "type": "module"

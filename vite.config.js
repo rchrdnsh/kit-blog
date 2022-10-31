@@ -3,7 +3,7 @@ import { imagetools } from 'vite-imagetools';
 
 /** @type {import('vite').UserConfig} */
 
-// const supportedExtensions = ['webp', 'jpg', 'jpeg', 'png'];
+const supportedExtensions = ['webp', 'jpg', 'jpeg', 'png'];
 
 const config = {
   ssr: {
@@ -16,22 +16,22 @@ const config = {
   },
   plugins: [
     sveltekit(),
-    imagetools(),
-    // imagetools(
-    //   {
-    //     defaultDirectives: (url) => {
-    //       const extension = url.pathname.substring(url.pathname.lastIndexOf('.') + 1);
-    //       if (supportedExtensions.includes(extension)) {
-    //         return new URLSearchParams({
-    //           format: `webp;jpg`,
-    //           width: `200;300;400;500;800;1000`,
-    //           picture: true
-    //         });
-    //       }
-    //       return new URLSearchParams();
-    //     }
-    //   },
-    // ),
+    // imagetools(),
+    imagetools(
+      {
+        defaultDirectives: (url) => {
+          const extension = url.pathname.substring(url.pathname.lastIndexOf('.') + 1);
+          if (supportedExtensions.includes(extension)) {
+            return new URLSearchParams({
+              format: `webp;jpg`,
+              width: `200;300;400;500;800;1000`,
+              picture: true
+            });
+          }
+          return new URLSearchParams();
+        }
+      },
+    ),
   ]
 };
 
