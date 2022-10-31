@@ -1,7 +1,7 @@
 <script>
   export let src;
   export let alt = 'Cool content in this place filled with things and stuff.';
-  export let portrait = '50';
+  export let portrait = '40';
   export let landscape = '20';
   export let article = false;
   // console.log(src);
