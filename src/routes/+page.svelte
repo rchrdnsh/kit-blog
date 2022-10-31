@@ -3,6 +3,7 @@
   import Card from '$library/Card.svelte';
 
   /** @type {import('./$types').PageData */
+  
   export let data;
   let { headlines, pieces, posts } = data;
   $: ( { headlines, pieces, posts } = data );
@@ -23,11 +24,11 @@
 
     <div class='stack'>
       <h1>Latest Headline</h1>
-      {#each headlines as {slug, status, title, description, image}}
+      {#each headlines as {folderslug, status, title, description, image}}
         {#if status === 'featured'}
           <Card
             route={'news'}
-            slug={slug}
+            slug={folderslug}
             title={title}
             description={description}
             image={image}
@@ -38,11 +39,11 @@
 
     <div class='stack'>
       <h1>Latest Piece</h1>
-      {#each pieces as {slug, status, title, description, image}}
+      {#each pieces as {folderslug, status, title, description, image}}
         {#if status === 'featured'}
           <Card
             route={'art'}
-            slug={slug}
+            slug={folderslug}
             title={title}
             description={description}
             image={image}
@@ -53,11 +54,11 @@
 
     <div class='stack'>
       <h1>Latest Post</h1>
-      {#each posts as {slug, status, title, description, icon}}
+      {#each posts as {folderslug, status, title, description, icon}}
         {#if status === 'featured'}
           <Card
             route={'blog'}
-            slug={slug}
+            slug={folderslug}
             title={title}
             description={description}
             icon={icon}
