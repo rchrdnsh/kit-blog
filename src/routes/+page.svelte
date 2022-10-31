@@ -15,11 +15,6 @@
 
 <section>
 
-  <picture class='welcome'>
-    <source srcset="/img/svelte-welcome.webp" type="image/webp">
-    <img src="/img/svelte-welcome.png" alt="Welcome"/>
-  </picture>
-
   <Grid>
 
     <div class='stack'>
@@ -83,19 +78,6 @@
   @media screen and (orientation: portrait) {
     section {
       padding-top: 4.5rem;
-    }
-  }
-
-  img {
-    width: clamp(10rem, 52rem, 64rem);
-    height: auto;
-    margin-bottom: -4rem;
-  }
-
-  @media screen and (orientation: portrait) {
-    img {
-      width: 80vw;
-      margin-bottom: -2rem;
     }
   }
 
