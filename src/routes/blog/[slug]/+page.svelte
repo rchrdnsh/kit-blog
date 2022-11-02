@@ -4,8 +4,8 @@
 
   /** @type {import('./$types').PageData */
   export let data;
-  let { title, description, icon, content } = data;
-  $: ( { title, description, icon, content } = data ); // so it stays in sync when `data` changes
+  let { title, description, component, content } = data;
+  $: ( { title, description, component, content } = data ); // so it stays in sync when `data` changes
 </script>
 
 <svelte:head>
@@ -16,7 +16,7 @@
   <Article
     title={title}
     description={description}
-    icon={icon}
+    component={component}
     content={content}
   />
 </Container>

@@ -14,10 +14,9 @@
   import { onMount } from 'svelte';
 	
 	// let Counter1;
-  let Counter2;
+
   
-	let component = `Counter`;
-  const Counter3 = import(`../library/${component}.svelte`);
+  // const Counter3 = import(`../library/${component}.svelte`);
 	// const sleep = ms => new Promise(f => setTimeout(f, ms));
 	
 	// onMount(async () => {
@@ -25,8 +24,10 @@
 	// 	Counter1 = (await import('../library/Counter.svelte')).default;
 	// });
 
+  let name = `Counter`;
+  let Component;
 	onMount(async () => {
-		Counter2 = (await import(`../library/${component}.svelte`)).default
+		Component = (await import(`../library/${name}.svelte`)).default
 	})
   // async function importComponent(component) {
   //   Counter2 = await import(`../library/${component}.svelte`);
@@ -51,8 +52,8 @@
   {/await} -->
 
   <div class='dynamic-component'>
-    {#if Counter2}
-      <svelte:component this={Counter2}/>
+    {#if Component}
+      <svelte:component this={Component}/>
     {:else}
       <p class='loading'>..loading</p>
     {/if}
@@ -94,14 +95,14 @@
 
     <div class='stack'>
       <h1>Latest Post</h1>
-      {#each posts as {folderslug, status, title, description, icon}}
+      {#each posts as {folderslug, status, title, description, component}}
         {#if status === 'featured'}
           <Card
             route={'blog'}
             slug={folderslug}
             title={title}
             description={description}
-            icon={icon}
+            component={component}
           />
         {/if}
       {/each}

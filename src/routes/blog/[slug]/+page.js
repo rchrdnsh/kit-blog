@@ -9,6 +9,7 @@ export async function load({ params }) {
     title: Post.metadata.title,
     description: Post.metadata.description,
     icon: Post.metadata.icon,
+    component: Post.metadata.component,
     content: Post.default,
   }
 }

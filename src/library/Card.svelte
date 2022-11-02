@@ -5,8 +5,16 @@
   export let slug = '';
   export let title = '';
   export let description = '';
+  export let component = 'Placeholder';
   export let image = '';
   export let icon = '';
+
+  import { onMount } from 'svelte';
+
+  let Component;
+	onMount(async () => {
+		Component = (await import(`../library/${component}.svelte`)).default
+	})
 </script>
 
 <a sveltekit-data-prefetch href={`/${route}/${slug}`}  class='card'>
@@ -20,6 +28,14 @@
   {:else if icon}
     <div class='icon'>
       <svelte:component this={icon}/>
+    </div>
+  {:else if component !== ''}
+    <div class='icon'>
+      {#if Component}
+        <svelte:component this={Component}/>
+      {:else}
+        <p class='loading'>..loading</p>
+      {/if}
     </div>
   {/if}
 </a>

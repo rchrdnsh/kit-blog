@@ -2,12 +2,13 @@
 status: featured
 title: Khaled
 description: All the major keys of DJ Khaled.
+component: Clock
 ---
 
-<script context="module">
+<!-- <script context="module">
   import Clock from '$library/Clock.svelte'
   metadata.icon = Clock;
-</script>
+</script> -->
 
 # Major Keys?
 

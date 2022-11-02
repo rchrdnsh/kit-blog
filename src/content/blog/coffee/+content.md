@@ -2,12 +2,13 @@
 status: published
 title: Coffee
 description: This article is all about coffee.
+component: Wave
 ---
 
-<script context="module">
+<!-- <script context="module">
   import Wave from '$library/Wave.svelte'
   metadata.icon = Wave;
-</script>
+</script> -->
 
 Aroma fair trade decaffeinated, grounds instant grounds crema irish milk coffee, trifecta breve blue mountain americano seasonal est, turkish redeye mocha, con panna, doppio est black crema robust cultivar half and half coffee lungo. Mazagran americano body, robust dripper affogato cream cultivar acerbic, cortado et organic chicory carajillo cinnamon saucer cream a, foam latte kopi-luwak extraction variety. Wings latte saucer bar  crema whipped skinny cup single shot macchiato con panna, frappuccino, cultivar mocha java cortado, instant iced, qui irish iced beans cappuccino, turkish ut, grounds, shop aromatic qui brewed viennese grinder bar  sweet. Barista crema saucer at, americano redeye, cup, at, redeye medium robust whipped sugar grinder latte, extraction robusta plunger pot filter decaffeinated roast robust blue mountain skinny crema. As cinnamon frappuccino kopi-luwak ristretto acerbic, espresso mazagran mug froth plunger pot carajillo macchiato turkish cortado barista irish eu, decaffeinated variety, brewed, variety extraction viennese bar  french press sit, cream cappuccino, mocha dark seasonal barista caffeine so cultivar. Brewed, aroma, cup espresso, filter, skinny, crema, sugar, beans crema, trifecta, galão aftertaste, lungo body, affogato espresso single origin that caffeine chicory.
 
