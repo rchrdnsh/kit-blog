@@ -1,5 +1,4 @@
-
-export const prerender = true;
+// export const prerender = true;
 
 import { getFilteredMetadata } from '$library/utilities/metadata.js'
 
@@ -10,12 +9,14 @@ export async function load() {
       {eager: true}
     )
   );
+
   const headlinesMetadata = getFilteredMetadata(
     import.meta.glob(
       '/src/content/news/**/+content.md',
       {eager: true}
     )
   );
+
   const piecesMetadata = getFilteredMetadata(
     import.meta.glob(
       '/src/content/art/**/+content.md',
@@ -29,4 +30,3 @@ export async function load() {
     pieces: piecesMetadata
   };
 };
-

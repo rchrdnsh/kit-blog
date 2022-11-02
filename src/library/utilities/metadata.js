@@ -49,23 +49,18 @@ export function getMetadata(files) {
 };
 
 export function getFilteredMetadata(files) {
-  const slugs = getFileNames(files);
+  const fileslugs = getFileNames(files);
   const folderslugs = getParentFolderNames(files);
   const posts = files;
-  // console.log(posts);
-  const listObject = Object.entries(files);
-  // console.log(listObject);
   const list = Object.values(posts);
-  // console.log(list);
   const metadata = list.map((post, i) => {
     post.metadata.titleslug = post.metadata.title.replace(/\s+/g, '-').toLowerCase();
-    post.metadata.slug = slugs[i];
+    post.metadata.fileslug = fileslugs[i];
     post.metadata.folderslug = folderslugs[i];
     return post.metadata
   });
 
   const filteredPosts = filterPosts(metadata, `featured`);
-  // console.log(filteredPosts);
   return filteredPosts
 };
 
