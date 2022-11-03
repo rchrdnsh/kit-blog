@@ -91,9 +91,9 @@ export const getFilteredMetadata = async (files) => {
 // async functions
 // --------------------------------
 
-export const fetchMarkdownPosts = async () => {
-  const allPostFiles = import.meta.glob('/src/content/blog/**/+content.md')
-  // const allPostFiles = files;
+export const fetchMarkdownPosts = async (files) => {
+  // const allPostFiles = import.meta.glob('/src/content/blog/**/+content.md')
+  const allPostFiles = files;
   // const fileslugs = getFileNames(files);
   // const folderslugs = getParentFolderNames(files);
   const iterablePostFiles = Object.entries(allPostFiles)

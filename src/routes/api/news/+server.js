@@ -7,7 +7,7 @@ import { fetchMarkdownPosts } from '$library/utilities/metadata.js';
 import { json } from '@sveltejs/kit';
 
 export const GET = async () => {
-  const allPosts = await fetchMarkdownPosts(import.meta.glob('/src/content/blog/**/+content.md'));
+  const allPosts = await fetchMarkdownPosts(import.meta.glob('/src/content/news/**/+content.md'));
   return json(allPosts);
 
   // const sortedPosts = allPosts.sort((a, b) => {

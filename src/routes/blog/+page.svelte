@@ -19,14 +19,7 @@
 
   <Grid>
 
-    <!-- {#each data.posts as {path, slug, metadata: {title}}}
-      <h2>
-        <a href={path}>
-          {title}
-        </a>
-      </h2>
-    {/each} -->
-
+    <!-- {#each posts as {folderslug, title, description, image}} -->
     {#each data.posts as {path, slug, metadata: {title, description, component}}}
       <Card
         route={'blog'}

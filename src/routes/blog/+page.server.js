@@ -1,5 +1,5 @@
 
-// export const prerender = true;
+export const prerender = true;
 
 // import { getMetadata } from '$library/utilities/metadata.js'
 
