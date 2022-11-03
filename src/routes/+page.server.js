@@ -1,6 +1,6 @@
 export const prerender = true;
 
-import { filterContent } from '$library/utilities/metadata.js';
+// import { filterContent } from '$library/utilities/metadata.js';
 
 // import { getFilteredMetadata } from '$library/utilities/metadata.js'
 
@@ -35,11 +35,11 @@ import { filterContent } from '$library/utilities/metadata.js';
 
 // };
 
-function filterResponse(response) {
-  let JSONResponse = response.json();
-  let filteredResponse = filterContent(JSONResponse, `featured`)
-  return filteredResponse;
-}
+// function filterResponse(response) {
+//   let JSONResponse = response.json();
+//   let filteredResponse = filterContent(JSONResponse, `featured`)
+//   return filteredResponse;
+// }
 
 export const load = async ({ fetch }) => {
 
