@@ -5,7 +5,7 @@
   /** @type {import('./$types').PageData */
   
   export let data;
-  console.log(data);
+  // console.log(data);
   // let { headlines, pieces, posts } = data;
   // $: ( { headlines, pieces, posts } = data );
 
