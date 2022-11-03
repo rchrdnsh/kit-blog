@@ -49,6 +49,16 @@ function filterPosts(posts, status) {
   return filteredPosts;
 }
 
+export function filterContent(items, status) {
+  let filteredItems = [];
+  for ( let item of items) {
+    if (item.metadata.status === status) {
+      filteredItems.push(item)
+    }
+  }
+  return filteredItems;
+}
+
 // --------------------------------
 // sync functions
 // --------------------------------
