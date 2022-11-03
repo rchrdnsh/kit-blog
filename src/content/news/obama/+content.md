@@ -1,7 +1,7 @@
 ---
 status: published
 title: Obama
-description: Believe in yourself and belive in your future.
+description: Believe in your future self.
 ---
 
 <script context="module">

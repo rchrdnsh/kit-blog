@@ -1,7 +1,7 @@
 ---
 status: published
 title: Corporate
-description: All the words and phrases you need to succeed.
+description: All you need to succeed.
 component: Logo
 ---
 

@@ -11,7 +11,7 @@
   // let path = '../library/Counter.svelte';
   // const Counter = import(path);
 
-  import { onMount } from 'svelte';
+  // import { onMount } from 'svelte';
 	
 	// let Counter1;
 
@@ -24,11 +24,11 @@
 	// 	Counter1 = (await import('../library/Counter.svelte')).default;
 	// });
 
-  let name = `Counter`;
-  let Component;
-	onMount(async () => {
-		Component = (await import(`../library/${name}.svelte`)).default
-	})
+  // let name = `Counter`;
+  // let Component;
+	// onMount(async () => {
+	// 	Component = (await import(`../library/${name}.svelte`)).default
+	// })
   // async function importComponent(component) {
   //   Counter2 = await import(`../library/${component}.svelte`);
   //   return Counter2;
@@ -51,13 +51,13 @@
     <svelte:component this={Counter2}/>
   {/await} -->
 
-  <div class='dynamic-component'>
+  <!-- <div class='dynamic-component'>
     {#if Component}
       <svelte:component this={Component}/>
     {:else}
       <p class='loading'>..loading</p>
     {/if}
-  </div>
+  </div> -->
 
   <!-- <svelte:component this={Counter3}/> -->
 
@@ -134,16 +134,15 @@
     gap: 1rem;
   }
 
-  .dynamic-component {
+  /* .dynamic-component {
     width: 300px;
     height: 150px;
     display: grid;
     place-content: center;
-    /* border: 1px solid red; */
-  }
+  } */
 
-  .loading {
+  /* .loading {
     width: 100%;
     height: 100%;
-  }
+  } */
 </style>

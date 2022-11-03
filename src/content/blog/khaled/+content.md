@@ -1,7 +1,7 @@
 ---
 status: featured
 title: Khaled
-description: All the major keys of DJ Khaled.
+description: Da Major Keys!
 component: Clock
 ---
 

@@ -1,7 +1,7 @@
 ---
 status: featured
 title: Sagan
-description: This is all about the art of Sagan.
+description: Our tiny, pale, blue dot.
 ---
 
 <script context="module">

@@ -1,7 +1,7 @@
 ---
 status: published
 title: Coffee
-description: This article is all about coffee.
+description: Gimmie dat bean juice.
 component: Wave
 ---
 

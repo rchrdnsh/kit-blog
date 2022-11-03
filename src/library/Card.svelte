@@ -1,5 +1,6 @@
 <script>
   import Picture from '$library/Picture.svelte';
+  import Placeholder from '$library/Placeholder.svelte';
 
   export let route = '';
   export let slug = '';
@@ -7,7 +8,7 @@
   export let description = '';
   export let component = 'Placeholder';
   export let image = '';
-  export let icon = '';
+  // export let icon = '';
 
   import { onMount } from 'svelte';
 
@@ -22,19 +23,18 @@
   <p class='description'>{description}</p>
   {#if image}
     <div class='icon'>
-      <!-- <img src={image} alt="A lovely piece of art or something else, I don't know."/> -->
       <Picture src={image} alt="A lovely piece of art or something else, I don't know."/>
     </div>
-  {:else if icon}
+  <!-- {:else if icon}
     <div class='icon'>
       <svelte:component this={icon}/>
-    </div>
+    </div> -->
   {:else if component !== ''}
     <div class='icon'>
       {#if Component}
         <svelte:component this={Component}/>
       {:else}
-        <p class='loading'>..loading</p>
+        <Placeholder/>
       {/if}
     </div>
   {/if}
@@ -48,7 +48,8 @@
     justify-items: center;
     background-color: #ff3e00;
     background-color: white;
-    min-width: 12rem;
+    width: 16rem;
+    height: 18rem;
     transition: transform 100ms;
     gap: 1rem;
     box-shadow:
@@ -86,5 +87,7 @@
   .icon {
     width: 8rem;
     height: 8rem;
+    display: grid;
+    /* place-content: center; */
   }
 </style>
