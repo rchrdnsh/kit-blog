@@ -5,8 +5,8 @@
 
   /** @type {import('./$types').PageData */
   export let data;
-  let { posts } = data;
-  $: ( { posts } = data ); // so it stays in sync when `data` changes
+  // let { posts } = data;
+  // $: ( { posts } = data ); // so it stays in sync when `data` changes
 </script>
 
 <svelte:head>
@@ -18,15 +18,25 @@
   <h1 class='category'>Blog Posts</h1>
 
   <Grid>
-    {#each posts as {folderslug, title, description, component}}
+
+    <!-- {#each data.posts as {path, slug, metadata: {title}}}
+      <h2>
+        <a href={path}>
+          {title}
+        </a>
+      </h2>
+    {/each} -->
+
+    {#each data.posts as {path, slug, metadata: {title, description, component}}}
       <Card
         route={'blog'}
-        slug={folderslug}
+        slug={slug}
         title={title}
         description={description}
         component={component}
       />
     {/each}
+
   </Grid>
   
 </Container>

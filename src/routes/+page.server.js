@@ -3,6 +3,7 @@ export const prerender = true;
 import { getFilteredMetadata } from '$library/utilities/metadata.js'
 
 export async function load() {
+
   const postsMetadata = getFilteredMetadata(
     import.meta.glob(
       '/src/content/blog/**/+content.md',
@@ -29,4 +30,5 @@ export async function load() {
     headlines: headlinesMetadata,
     pieces: piecesMetadata
   };
+
 };
