@@ -66,7 +66,7 @@
 
     <div class='stack'>
       <h1>Latest Headline</h1>
-      {#each data.headlines as {slug, metadata: {status, title, description, image}}}
+      {#each data.headlines as {slug, metadata: {title, description, image}}}
         <!-- {#if status === 'featured'} -->
           <Card
             route={'news'}
@@ -82,7 +82,7 @@
     <div class='stack'>
       <h1>Latest Piece</h1>
       <!-- {#each pieces as {folderslug, status, title, description, image}} -->
-      {#each data.pieces as {slug, metadata: {status, title, description, image}}}
+      {#each data.pieces as {slug, metadata: {title, description, image}}}
         <!-- {#if status === 'featured'} -->
           <Card
             route={'art'}
@@ -98,7 +98,7 @@
     <div class='stack'>
       <h1>Latest Post</h1>
       <!-- {#each posts as {folderslug, status, title, description, component}} -->
-      {#each data.posts as {slug, metadata: {status, title, description, component}}}
+      {#each data.posts as {slug, metadata: {title, description, component}}}
         <!-- {#if status === 'featured'} -->
           <Card
             route={'blog'}
