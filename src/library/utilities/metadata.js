@@ -102,27 +102,24 @@ export const getFilteredMetadata = async (files) => {
 // --------------------------------
 
 export const fetchMarkdownPosts = async (files) => {
-  // const allPostFiles = import.meta.glob('/src/content/blog/**/+content.md')
-  const allPostFiles = files;
-  // const fileslugs = getFileNames(files);
-  // const folderslugs = getParentFolderNames(files);
-  const iterablePostFiles = Object.entries(allPostFiles)
+  const allContentFiles = files;
+  const iterableContentFiles = Object.entries(allContentFiles)
   
-  const allPosts = await Promise.all(
-    iterablePostFiles.map(async ([path, resolver]) => {
+  const allContent = await Promise.all(
+    iterableContentFiles.map(async ([path, resolver]) => {
       const { metadata } = await resolver()
-      const postPath = path.slice(12, -12)
-      const slug = getParentFolderName(path)
+      const contentPath = path.slice(12, -12)
+      const contentSlug = getParentFolderName(path)
 
       return {
         metadata: metadata,
-        path: postPath,
-        slug: slug
+        path: contentPath,
+        slug: contentSlug
       }
     })
   )
 
-  return allPosts;
+  return allContent;
 }
 
 

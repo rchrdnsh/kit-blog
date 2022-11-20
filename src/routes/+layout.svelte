@@ -1,39 +1,34 @@
 <script>
-  import Header from '$library/Header.svelte';
-  import '../app.css';
+  import '$styles/app.css';
 </script>
 
-<Header/>
-
-<main>
+<div class='container'>
+  <div class='text'>
+    <p>Main Layout</p>
+    <a href='/'>Front</a>
+    <a href='/dash'>Back</a>
+  </div>
   <slot/>
-</main>
-
-<footer>
-  <p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-</footer>
+</div>
 
 <style>
-  main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    width: 100%;
-    max-width: 1024px;
-    margin: 0 auto;
-    box-sizing: border-box;
+  .container {
+    width: 100vw;
+    height: 100vw;
+    padding: 8px;
+    display: grid;
+    grid-template-rows: 24px 1fr;
+    row-gap: 8px;
   }
-
-  footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  .text {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: start;
     align-items: center;
-    padding: 2rem 0;
-  }
-
-  footer a {
-    font-weight: bold;
+    column-gap: 12px;
+    font-size: 16px;
+    /* border: 1px solid red; */
+    line-height: 1;
+    margin-left: 16px;
   }
 </style>

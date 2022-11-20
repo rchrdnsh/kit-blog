@@ -117,24 +117,17 @@
 
 <style>
   section {
-    padding-top: 2rem;
     display: grid;
     place-items: center;
+    /* align-items: start; */
     grid-auto-flow: row;
-    row-gap: 2rem;
-  }
-
-  @media screen and (orientation: portrait) {
-    section {
-      padding-top: 4.5rem;
-    }
   }
 
   .stack {
     display: grid;
     grid-auto-flow: row;
     place-items: center;
-    gap: 1rem;
+    gap: 32px;
   }
 
   /* .dynamic-component {

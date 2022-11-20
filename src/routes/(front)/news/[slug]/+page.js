@@ -1,9 +1,9 @@
 
-export const prerender = true;
+// export const prerender = true;
 
 export async function load({ params }) {
   const Headline = await import(
-    `../../../content/news/${params.slug}/+content.md`
+    `../../../../content/news/${params.slug}/+content.md`
   );
   return {
     title: Headline.metadata.title,

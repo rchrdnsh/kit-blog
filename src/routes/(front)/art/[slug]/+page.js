@@ -1,9 +1,9 @@
 
-export const prerender = true;
+// export const prerender = true;
 
 export async function load({ params }) {
   const Piece = await import(
-    `../../../content/art/${params.slug}/+content.md`
+    `../../../../content/art/${params.slug}/+content.md`
   );
   return {
     title: Piece.metadata.title,

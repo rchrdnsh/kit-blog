@@ -21,7 +21,8 @@ const config = {
     },
     alias: {
       $library: 'src/library',
-      $content: 'src/content'
+      $content: 'src/content',
+      $styles: 'src/styles'
     }
   }
 };

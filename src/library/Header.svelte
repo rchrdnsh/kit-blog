@@ -13,6 +13,7 @@
       <li class:active={$page.url.pathname === '/news'}><a sveltekit-data-prefetch href="/news">News</a></li>
       <li class:active={$page.url.pathname === '/art'}><a sveltekit-data-prefetch href="/art">Art</a></li>
       <li class:active={$page.url.pathname === '/blog'}><a sveltekit-data-prefetch href="/blog">Blog</a></li>
+      <li class:active={$page.url.pathname === '/list'}><a sveltekit-data-prefetch href="/list">list</a></li>
       <li class:active={$page.url.pathname === '/about'}><a sveltekit-data-prefetch href="/about">About</a></li>
     </ul>
     <svg viewBox='0 0 2 3' aria-hidden='true' preserveAspectRatio='none'>
@@ -32,17 +33,6 @@
     display: flex;
     justify-content: center;
     --background: rgba(255, 255, 255, 0.7);
-  }
-
-  @media screen and (orientation: portrait) {
-    nav {
-      width: 100%;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      /* border: 1px solid red; */
-    }
   }
 
   svg {
