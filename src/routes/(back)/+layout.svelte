@@ -8,8 +8,8 @@
       <!-- <p>News Editor</p> -->
       <!-- <p>Art Editor</p> -->
       <!-- <p>Blog Editor</p> -->
-      <a href='/dash/list-editor'><p>List Editor</p></a>
-      <a href='/dash/post-editor'><p>Post Editor</p></a>
+      <a href='/dash/list'><p>List</p></a>
+      <a href='/dash/posts'><p>Posts</p></a>
     </div>
   </div>
   <main>
