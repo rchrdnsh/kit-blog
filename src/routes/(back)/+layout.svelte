@@ -57,6 +57,9 @@
   main {
     grid-row: 2 / 3;
     grid-column: 2 / 3;
-    padding: 16px;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    min-height: 0;
   }
 </style>

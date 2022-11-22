@@ -13,7 +13,8 @@
       <li class:active={$page.url.pathname === '/news'}><a sveltekit-data-prefetch href="/news">News</a></li>
       <li class:active={$page.url.pathname === '/art'}><a sveltekit-data-prefetch href="/art">Art</a></li>
       <li class:active={$page.url.pathname === '/blog'}><a sveltekit-data-prefetch href="/blog">Blog</a></li>
-      <li class:active={$page.url.pathname === '/list'}><a sveltekit-data-prefetch href="/list">list</a></li>
+      <li class:active={$page.url.pathname === '/list'}><a sveltekit-data-prefetch href="/list">List</a></li>
+      <li class:active={$page.url.pathname === '/posts'}><a sveltekit-data-prefetch href="/posts">Posts</a></li>
       <li class:active={$page.url.pathname === '/about'}><a sveltekit-data-prefetch href="/about">About</a></li>
     </ul>
     <svg viewBox='0 0 2 3' aria-hidden='true' preserveAspectRatio='none'>

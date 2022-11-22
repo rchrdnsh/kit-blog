@@ -72,8 +72,17 @@ export async function POST({ request }) {
   const { path, title, description, author, body } = await request.json();
   const updatedPost = {title: title, description: description, author: author, body: body};
   const updatedPostToString = JSON.stringify(updatedPost, null, 2);
-  console.log(updatedPostToString);
+  // console.log(updatedPostToString);
 
+  function handlePath(path = null, title) {
+    if (path === null) {
+      return `src/content/posts/${title}.json`;
+    } else {
+      return path
+    }
+  }
+
+  // let postPath = handlePath(path, title);
   let postPath = path;
 
   const processedPost = fs.writeFile(
