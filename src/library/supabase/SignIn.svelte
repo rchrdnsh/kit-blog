@@ -22,31 +22,22 @@
 </script>
 
 <form on:submit|preventDefault={handleSignIn}>
-  <p class=''>Sign in and stuff...</p>
+  <p>Sign In</p>
   <div class='field'>
-    <label for="email">Email</label>
-    <input class='' type='email' placeholder='Your email' bind:value={email} />
+    <label for='email'>Email</label>
+    <input type='email' placeholder='Your email' bind:value={email}/>
   </div>
   <div class='field'>
-    <label for="password">Password</label>
-    <input class='' type='password' placeholder='Your password' bind:value={password} />
+    <label for='password'>Password</label>
+    <input type='password' placeholder='Your password' bind:value={password}/>
   </div>
   <div>
-    <input type='submit' class='' value={loading ? 'Loading' : 'Sign In'}
+    <input type='submit' value={loading ? 'Loading' : 'Sign In'}
     disabled={loading} />
   </div>
 </form>
 
 <style>
-  form {
-    width: 50%;
-    height: min-content;
-    padding: 16px;
-    display: grid;
-    row-gap: 8px;
-    place-self: center;
-  }
-
   .field {
     display: grid;
     row-gap: 4px;
