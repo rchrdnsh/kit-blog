@@ -25,7 +25,7 @@
     border: 1px solid black;
     border-radius: 16px;
     display: grid;
-    grid-template-columns: 256px 1fr;
+    grid-template-columns: 192px 1fr;
     grid-template-rows: 64px 1fr;
   }
 

@@ -4,12 +4,15 @@
 
 <!-- <div class='container'> -->
 
+  <div class='header'>
+    <h1>Posts</h1>
+    <a class='new-post' href={`posts/new`}>
+      <p>New Post</p>
+      <button>+</button>
+    </a>
+  </div>
+
   <div class='grid'>
-  
-    <div class='card'>
-      <h1>New Post</h1>
-      <a href={`posts/new`}><button>New</button></a>
-    </div>
   
     {#each data.posts as { slug, content: {title, description, author, body}}}
       <div class='card'>
@@ -32,9 +35,22 @@
     overflow: auto;
   } */
 
+  .header {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: start;
+    height: min-content;
+    height: 64px;
+    /* border: 1px solid red; */
+    border-bottom: 1px solid #999;
+    padding-left: 16px;
+    column-gap: 16px;
+  }
+
   .grid {
     width: 100%;
-    height: 100%;
+    height: calc(100% - 64px);
     min-height: 0;
     padding: 32px;
     display: grid;
@@ -66,5 +82,33 @@
     border: 1px solid #999;
     border-radius: 8px;
     width: 100%;
+    cursor: pointer;
+  }
+
+  .new-post {
+    border: 1px solid #999;
+    background-color: #eee;
+    padding: 4px;
+    /* width: 256px; */
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    height: min-content;
+    border-radius: 32px;
+    column-gap: 8px;
+    padding-left: 12px;
+  }
+
+  .new-post > p {
+    line-height: 1;
+  }
+
+  .new-post > button {
+    margin: 0;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 32px;
+    background-color: white;
   }
 </style>

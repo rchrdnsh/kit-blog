@@ -32,7 +32,7 @@
     <div class='input-field slug-field'>
       <label for="title">Slug</label>
       <input type='checkbox' id='title-for-slug' name='title-for-slug'/>
-      <label for="title-for-slug">Use the title for the slug.</label>
+      <label class='slug-label' for="title-for-slug">Use the title for the slug.</label>
       <input type="text" id="title" name="title" bind:value={slug}/>
     </div>
 
@@ -125,6 +125,10 @@
   label {
     font-size: 12px;
     margin-left: 8px;
+  }
+
+  .slug-label {
+    margin: 0;
   }
 
   input {

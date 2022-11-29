@@ -1,0 +1,1 @@
+import '$library/supabase/supabaseClient.js';
