@@ -14,7 +14,6 @@
 	};
 </script>
 
-
 <div class='container'>
 	<h1 class='sign-up-title'>Sign up</h1>
 	{#if form?.error}
@@ -67,7 +66,7 @@
 		width: min-content;
 		height: min-content;
 		display: grid;
-		border: 1px solid red;
+		/* border: 1px solid red; */
 		gap: 16px;
 		padding: 16px;
 		place-self: center;

@@ -8,7 +8,10 @@
   const handleSignIn = async () => {
     try {
       loading = true
-      const { error } = await supabase.auth.signInWithPassword({ email, password })
+      const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: 'https://example.com/update-password',
+      })
+      // const { error } = await supabase.auth.signInWithPassword({ email, password })
       if (error) throw error
       alert('Boom! You be signed in, yo!')
     } catch (error) {
