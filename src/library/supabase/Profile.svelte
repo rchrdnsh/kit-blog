@@ -5,9 +5,10 @@
 
   export let session: AuthSession
 
-  let loading = false
+  let loading: boolean = false
 
   let username: string | null = null
+  let provider: string | null = null
   let avatarUrl: string | null = null
   let specialty: string | null = null
   let address: string | null = null
@@ -25,13 +26,14 @@
       const { user } = session
 
       const { data, error, status } = await supabase
-        .from('profiles')
-        .select(`username, specialty, avatar_url, address, city, state, zip`)
+        .from(`profiles`)
+        .select(`username, provider, specialty, avatar_url, address, city, state, zip`)
         .eq('id', user.id)
         .single()
 
       if (data) {
         username = data.username
+        provider = data.provider
         specialty = data.specialty
         avatarUrl = data.avatar_url
         address = data.address
@@ -58,6 +60,7 @@
       const updates = {
         id: user.id,
         username,
+        provider,
         specialty,
         avatar_url: avatarUrl,
         address,
@@ -75,6 +78,7 @@
         alert(error.message)
       }
     } finally {
+      alert(`Your profile has been updated :-)`)
       loading = false
     }
   }
@@ -89,52 +93,61 @@
         alert(error.message)
       }
     } finally {
+      alert(`You have successfully signed out :-)`)
       loading = false
     }
   }
 </script>
 
 <form on:submit|preventDefault={updateProfile}>
-  <div class='field'>
-    <label for='email'>Email</label>
-    <input id='email' type='text' value={session.user.email} disabled/>
-  </div>
-  <div class='field'>
-    <label for='username'>Name</label>
-    <input id='username' type='text' bind:value={username}/>
-  </div>
-  <div class='field'>
-    <label for='specialty'>Specialty</label>
-    <input id='specialty' type='text' bind:value={specialty}/>
-  </div>
-  <div class='field'>
-    <label for='address'>Address</label>
-    <input id='address' type='text' bind:value={address}/>
-  </div>
-  <div class='field'>
-    <label for='city'>City</label>
-    <input id='city' type='text' bind:value={city}/>
-  </div>
-  <div class='field'>
-    <label for='state'>State</label>
-    <input id='state' type='text' bind:value={state}/>
-  </div>
-  <div class='field'>
-    <label for='zip'>Zip Code</label>
-    <input id='zip' type='text' bind:value={zip}/>
-  </div>
 
-  <div>
-    <input
-      type='submit'
-      value={loading ? 'Loading...' : 'Update'}
-      disabled={loading}
-    />
+  <div class='profile'>
+    <div class='field'>
+      <label for='email'>Email</label>
+      <input id='email' type='text' value={session.user.email} disabled/>
+    </div>
+    <div class='field'>
+      <label for='username'>username</label>
+      <input id='username' type='text' bind:value={username}/>
+    </div>
+    <div class='field'>
+      <label for='provider'>Provider Name</label>
+      <input id='provider' type='text' bind:value={provider}/>
+    </div>
+    <div class='field'>
+      <label for='specialty'>Specialty</label>
+      <input id='specialty' type='text' bind:value={specialty}/>
+    </div>
+    <div class='field'>
+      <label for='address'>Address</label>
+      <input id='address' type='text' bind:value={address}/>
+    </div>
+    <div class='field'>
+      <label for='city'>City</label>
+      <input id='city' type='text' bind:value={city}/>
+    </div>
+    <div class='field'>
+      <label for='state'>State</label>
+      <input id='state' type='text' bind:value={state}/>
+    </div>
+    <div class='field'>
+      <label for='zip'>Zip Code</label>
+      <input id='zip' type='text' bind:value={zip}/>
+    </div>
+  
+    <div>
+      <input
+        type='submit'
+        value={loading ? 'Loading...' : 'Update'}
+        disabled={loading}
+      />
+    </div>
   </div>
 
   <div>
     <button on:click={signOut} disabled={loading}>Sign Out</button>
   </div>
+
 </form>
 
 <style>
@@ -142,6 +155,16 @@
     grid-template-columns: 1fr 1fr;
     gap: 16px;
   }
+
+  .profile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    border: 1px solid #999;
+    border-radius: 12px;
+    padding: 16px;
+  }
+
   .field {
     display: grid;
     row-gap: 4px;

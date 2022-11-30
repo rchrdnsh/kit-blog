@@ -10,6 +10,7 @@
       <!-- <p>Blog Editor</p> -->
       <a href='/dash/list'><p>List</p></a>
       <a href='/dash/posts'><p>Posts</p></a>
+      <a href='/dash/providers'><p>Providers</p></a>
     </div>
   </div>
   <main>
