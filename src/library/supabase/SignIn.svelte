@@ -1,5 +1,5 @@
 <script lang='ts'>
-  import { supabase } from '$library/supabase/supabaseClient.js';
+  import { supabase } from '$library/supabase/supabaseClient';
 
   let loading = false;
   let email: string;
@@ -22,7 +22,7 @@
 </script>
 
 <form on:submit|preventDefault={handleSignIn}>
-  <p class='sign-in-title'>Sign In</p>
+  <p class='title'>Sign In</p>
   <div class='field'>
     <label for='email'>Email</label>
     <input type='email' placeholder='Your email' bind:value={email}/>
@@ -31,7 +31,6 @@
     <label for='password'>Password</label>
     <input type='password' placeholder='Your password' bind:value={password}/>
   </div>
-  <hr/>
   <div>
     <input class='sign-in-button' type='submit' value={loading ? 'Loading' : 'Sign In'}
     disabled={loading} />
@@ -42,13 +41,14 @@
 </form>
 
 <style>
-  .sign-in-title {
+  .title {
     font-size: 20px;
     justify-self: center;
   }
 
   form {
     background-color: #eee;
+    /* place-self: center; */
   }
 
   .field {
@@ -67,6 +67,10 @@
     border: 1px solid #999;
     width: 512px;
     background-color: #fff;
+  }
+
+  .sign-in-button {
+    margin-top: 16px;
   }
 
   .sign-up-link {

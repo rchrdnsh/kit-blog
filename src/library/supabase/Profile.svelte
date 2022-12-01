@@ -1,7 +1,8 @@
 <script lang='ts'>
   import { onMount } from 'svelte'
   import type { AuthSession } from '@supabase/supabase-js';
-  import { supabase } from '$library/supabase/supabaseClient.js';
+  import { supabase } from '$library/supabase/supabaseClient';
+  import Avatar from './Avatar.svelte'
 
   export let session: AuthSession
 
@@ -102,6 +103,7 @@
 <form on:submit|preventDefault={updateProfile}>
 
   <div class='profile'>
+    <Avatar bind:url={avatarUrl} size={10} on:upload={updateProfile}/>
     <div class='field'>
       <label for='email'>Email</label>
       <input id='email' type='text' value={session.user.email} disabled/>

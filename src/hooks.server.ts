@@ -1,1 +1,1 @@
-import '$library/supabase/supabaseClient.js';
+import '$library/supabase/supabaseClient.ts';
