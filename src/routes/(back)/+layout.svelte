@@ -1,9 +1,11 @@
 <script lang='ts'>
   import { page } from '$app/stores';
   import SignIn from '$library/supabase/SignIn.svelte';
-  import { onMount } from 'svelte'
+  // import ArrowLogo from './arrow-logo-1024.png';
+  // import { onMount } from 'svelte'
   import type { AuthSession } from '@supabase/supabase-js';
   import { supabase } from '$library/supabase/supabaseClient';
+  import Avatar from '$library/supabase/Avatar.svelte'
   // import Profile from '$library/supabase/Profile.svelte';
   $: console.log($page.data.session);
   // $: console.log($page.data.session.user.email);
@@ -12,17 +14,7 @@
   let loading: boolean = false
 
   let username: string | null = null
-  let provider: string | null = null
   let avatarUrl: string | null = null
-  let specialty: string | null = null
-  let address: string | null = null
-  let city: string | null = null
-  let state: string | null = null
-  let zip: string | null = null
-
-  onMount(() => {
-    getProfile()
-  })
 
   const getProfile = async () => {
     try {
@@ -30,20 +22,14 @@
       const { user } = session
 
       const { data, error, status } = await supabase
-        .from(`profiles`)
-        .select(`username, provider, specialty, avatar_url, address, city, state, zip`)
+        .from(`team`)
+        .select(`username, avatar_url`)
         .eq('id', user.id)
         .single()
 
       if (data) {
         username = data.username
-        provider = data.provider
-        specialty = data.specialty
         avatarUrl = data.avatar_url
-        address = data.address
-        city = data.city
-        state = data.state
-        zip = data.zip
       }
 
       if (error && status !== 406) throw error
@@ -55,6 +41,11 @@
       loading = false
     }
   }
+
+  $: if ($page.data.session) {
+    console.log(`running dat shit!`)
+    getProfile()
+  }
 </script>
 
 <div class='back'>
@@ -62,16 +53,26 @@
     <div class='admin-sign-in'>
       <SignIn/>
     </div>
+
   {:else if $page.data.session && !$page.data.session.user.email.includes(`@arrowgtp.com`)}
     <p class='warning'>You do not have permission<br/>to view this page.</p>
+
   {:else if $page.data.session && $page.data.session.user.email.includes(`@arrowgtp.com`)}
     <nav>
-      <a href='/dash'><h3>Dashboard</h3></a>
-      <a href='/dash/profile'>Hello, {provider}</a>
-      <img src={avatarUrl} alt={`Avatar of the current user`}/>
+      <div class='logo'>
+        <img src='/arrow-logo.png' alt='Company Logo'/>
+        <a href='/dash' class='nav-title'>Company Dashboard</a>
+      </div>
+      <div class='profile'>
+        <a href='/dash/profile' class='nav-title'>{`Hello, ${username}` || ``}</a>
+        <div class='avatar'>
+          <Avatar bind:url={avatarUrl} size={36}/>
+        </div>
+      </div>
     </nav>
     <div class='menu'>
       <div class='text'>
+        <a href='/dash/profile'><h3>Profile</h3></a>
         <h3>Collections</h3>
         <!-- <p>News Editor</p> -->
         <!-- <p>Art Editor</p> -->
@@ -87,9 +88,6 @@
   {/if}
 </div>
 
-
-
-
 <style>
   .back {
     width: calc(100vw - 16px);
@@ -99,6 +97,7 @@
     display: grid;
     grid-template-columns: 192px 1fr;
     grid-template-rows: 64px 1fr;
+    overflow: hidden;
   }
 
   .admin-sign-in {
@@ -135,6 +134,15 @@
     align-items: center;
     justify-content: space-between;
     grid-auto-flow: column;
+    padding: 0 12px;
+    background-color: #265dab;
+  }
+
+  .nav-title {
+    font-size: 18px;
+    /* font-weight: bold; */
+    color: white;
+    text-shadow: 1px 1px 1px black;
   }
 
   .menu {
@@ -158,5 +166,39 @@
     min-width: 0;
     height: 100%;
     min-height: 0;
+  }
+
+  .profile {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    column-gap: 8px;
+  }
+
+  .avatar {
+    width: min-content;
+    height: min-content;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    display: grid;
+    margin: 0;
+    /* padding: 2px; */
+    background-color: white;
+    /* box-shadow: inset 0px 0px 2px black; */
+  }
+
+  .logo {
+    /* border: 2px solid #000; */
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    column-gap: 8px;
+    /* border-radius: 50%; */
+  }
+
+  img {
+    width: 44px;
+    height: 44px;
   }
 </style>

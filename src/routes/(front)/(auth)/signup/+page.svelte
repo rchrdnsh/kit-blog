@@ -15,13 +15,17 @@
 </script>
 
 <div class='container'>
+
 	<h1 class='sign-up-title'>Sign up</h1>
+
 	{#if form?.error}
 		<div class='danger-notification'>{form.error}</div>
 	{/if}
+
 	{#if form?.message}
 		<div class='primary-notification'>{form.message}</div>
 	{/if}
+	
 	<form method='post' use:enhance={handleSubmit}>
 		<div class='field'>
 			<label for='email' class='label'>Email</label>

@@ -4,6 +4,7 @@
 
   export let size = 10
   export let url: string | null
+  export let canEdit: boolean = false;
 
   let avatarUrl: string | null = null
   let uploading = false
@@ -60,24 +61,51 @@
   $: if (url) downloadImage(url)
 </script>
 
-<div>
-  {#if avatarUrl} <img src={avatarUrl} alt={avatarUrl ? 'Avatar' : 'No image'} class="avatar image"
-  style="height: {size}em; width: {size}em;" /> {:else}
-  <div class="avatar no-image" style="height: {size}em; width: {size}em;" />
+<div class='box'>
+  {#if avatarUrl}
+    <img
+      src={avatarUrl}
+      alt={avatarUrl ? 'Avatar' : 'No image'}
+      class="avatar image"
+      style="height: {size}px; width: {size}px;"
+    />
+  {:else}
+    <div
+      class="avatar no-image"
+      style="height: {size}px; width: {size}px;"
+    />
   {/if}
 
-  <div style="width: {size}em;">
-    <label class="button primary block" for="single">
-      {uploading ? 'Uploading ...' : 'Upload'}
-    </label>
-    <input
-      style="visibility: hidden; position:absolute;"
-      type="file"
-      id="single"
-      accept="image/*"
-      bind:files
-      on:change="{uploadAvatar}"
-      disabled="{uploading}"
-    />
-  </div>
+  {#if canEdit === true}
+    <div style="width: {size}px;">
+      <label for="single">
+        {uploading ? 'Uploading ...' : 'Upload'}
+      </label>
+      <input
+        style="visibility: hidden; position:absolute;"
+        type="file"
+        id="single"
+        accept="image/*"
+        bind:files
+        on:change="{uploadAvatar}"
+        disabled="{uploading}"
+      />
+    </div>
+  {/if}
+
 </div>
+
+<style>
+  .box {
+    display: grid;
+  }
+
+  label {
+    margin: 0;
+    padding: 6px 12px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    background-color: #265dab;
+    color: white;
+  }
+</style>

@@ -32,7 +32,7 @@ export const actions: Actions = {
     const { error } = await supabaseClient.auth.signUp({
       email,
       password,
-      options: { emailRedirectTo: `${url.origin}/profile` }
+      options: { emailRedirectTo: `${url.origin}/welcome` }
     });
 
     if (error) {

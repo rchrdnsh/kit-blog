@@ -1,4 +1,3 @@
-
 // ---------------- TS ----------------
 import type { LayoutLoad } from './$types'
 import { getSupabase } from '@supabase/auth-helpers-sveltekit'

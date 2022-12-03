@@ -2,7 +2,7 @@
   import { page } from '$app/stores';
   import SignIn from '$library/supabase/SignIn.svelte';
   import Profile from '$library/supabase/Profile.svelte';
-  $: console.log($page.data.session);
+  // $: console.log($page.data.session);
 </script>
 
 <svelte:head>

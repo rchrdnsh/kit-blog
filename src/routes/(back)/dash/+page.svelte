@@ -1,5 +1,5 @@
 <div class='container'>
-  <h1>Dashboard homepage</h1>
+  <h1>Dashboard Homepage</h1>
   <div class='cards'>
     <div class='card'><p>News</p></div>
     <div class='card'><p>Revenue</p></div>

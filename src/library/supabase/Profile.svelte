@@ -103,7 +103,7 @@
 <form on:submit|preventDefault={updateProfile}>
 
   <div class='profile'>
-    <Avatar bind:url={avatarUrl} size={10} on:upload={updateProfile}/>
+    <Avatar bind:url={avatarUrl} size={256} on:upload={updateProfile} canEdit={true}/>
     <div class='field'>
       <label for='email'>Email</label>
       <input id='email' type='text' value={session.user.email} disabled/>
