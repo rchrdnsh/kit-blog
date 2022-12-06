@@ -27,7 +27,7 @@
       const { user } = session
 
       const { data, error, status } = await supabase
-        .from(`profiles`)
+        .from(`providers`)
         .select(`username, provider, specialty, avatar_url, address, city, state, zip`)
         .eq('id', user.id)
         .single()
@@ -60,18 +60,18 @@
 
       const updates = {
         id: user.id,
-        username,
-        provider,
-        specialty,
+        username: username,
+        provider: provider,
+        specialty: specialty,
         avatar_url: avatarUrl,
-        address,
-        city,
-        state,
-        zip,
+        address: address,
+        city: city,
+        state: state,
+        zip: zip,
         updated_at: new Date(),
       }
 
-      let { error } = await supabase.from('profiles').upsert(updates)
+      let { error } = await supabase.from('providers').upsert(updates)
 
       if (error) throw error
     } catch (error) {

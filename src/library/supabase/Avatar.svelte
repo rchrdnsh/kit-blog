@@ -1,8 +1,8 @@
-<script lang="ts">
+<script lang='ts'>
   import { createEventDispatcher } from 'svelte';
   import { supabase } from '$library/supabase/supabaseClient';
 
-  export let size = 10
+  export let size = 32
   export let url: string | null
   export let canEdit: boolean = false;
 
@@ -22,6 +22,7 @@
 
       const url = URL.createObjectURL(data)
       avatarUrl = url
+
     } catch (error) {
       if (error instanceof Error) {
         console.log('Error downloading image: ', error.message)
@@ -64,9 +65,9 @@
 <div class='box'>
   {#if avatarUrl}
     <img
+      class='avatar'
       src={avatarUrl}
       alt={avatarUrl ? 'Avatar' : 'No image'}
-      class="avatar image"
       style="height: {size}px; width: {size}px;"
     />
   {:else}
@@ -98,6 +99,9 @@
 <style>
   .box {
     display: grid;
+    /* border: 1px solid #999; */
+    /* border-radius: 12px; */
+    /* padding: 16px; */
   }
 
   label {
@@ -107,5 +111,11 @@
     border-radius: 4px;
     background-color: #265dab;
     color: white;
+  }
+
+  .avatar {
+    /* border: 1px solid #999; */
+    border-radius: 50%;
+    overflow: hidden;
   }
 </style>

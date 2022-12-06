@@ -3,6 +3,7 @@
   import { supabase } from '$library/supabase/supabaseClient';
   import { invalidate } from '$app/navigation';
   import { onMount } from 'svelte';
+  import { SvelteToast } from '@zerodevx/svelte-toast';
 
   onMount(() => {
     const {
@@ -16,6 +17,8 @@
     }
   })
 </script>
+
+<SvelteToast/>
 
 <div class='container'>
   <div class='text'>

@@ -36,7 +36,7 @@ export const GET = async () => {
   // const postEntries = Object.entries(allPosts)
   // const JSONPosts = JSON.stringify(postEntires)
   // console.log(postEntries);
-  console.log(processedPosts);
+  // console.log(processedPosts);
   return json(processedPosts);
 }
 

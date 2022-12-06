@@ -33,7 +33,7 @@
       // const { user } = session
 
       const { data, error, status } = await supabase
-        .from(`profiles`)
+        .from(`providers`)
         .select(`username, provider, specialty, address, city, state, zip`)
         .select()
         // .eq('id', user.id)

@@ -1,3 +1,7 @@
+<script>
+  // import { SvelteToast } from '@zerodevx/svelte-toast';
+</script>
+
 <div class='container'>
   <h1>Dashboard Homepage</h1>
   <div class='cards'>

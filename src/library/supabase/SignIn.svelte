@@ -1,5 +1,7 @@
 <script lang='ts'>
   import { supabase } from '$library/supabase/supabaseClient';
+  // import { toast } from '@zerodevx/svelte-toast';
+  import { success, warning, failure } from '$library/notifications/toast-themes'
 
   let loading = false;
   let email: string;
@@ -10,10 +12,12 @@
       loading = true
       const { error } = await supabase.auth.signInWithPassword({ email, password })
       if (error) throw error
-      alert('Boom! You be signed in, yo!')
+      // alert(`Boom! You be signed in, yo!`)
+      success(`Boom! You be signed in, yo!`)
     } catch (error) {
       if (error instanceof Error) {
-        alert(error.message)
+        // alert(error.message)
+        failure(error.message)
       }
     } finally {
       loading = false

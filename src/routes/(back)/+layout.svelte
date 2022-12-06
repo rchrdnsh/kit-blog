@@ -1,50 +1,95 @@
-<script lang='ts'>
+<!-- taking out typescript for the moment -->
+
+<!-- <script lang='ts'> -->
+<script>
   import { page } from '$app/stores';
   import SignIn from '$library/supabase/SignIn.svelte';
   // import ArrowLogo from './arrow-logo-1024.png';
   // import { onMount } from 'svelte'
-  import type { AuthSession } from '@supabase/supabase-js';
+  // import type { AuthSession } from '@supabase/supabase-js';
   import { supabase } from '$library/supabase/supabaseClient';
   import Avatar from '$library/supabase/Avatar.svelte'
+  // import { SvelteToast } from '@zerodevx/svelte-toast';
   // import Profile from '$library/supabase/Profile.svelte';
-  $: console.log($page.data.session);
+  // $: console.log($page.data.session);
   // $: console.log($page.data.session.user.email);
-  let session: AuthSession = $page.data.session
+  // let session: AuthSession = $page.data.session
+  // import { toast } from '@zerodevx/svelte-toast';
+  import { success, warning, failure } from '$library/notifications/toast-themes'
 
-  let loading: boolean = false
+  // let loading: boolean = false
+  let loading = false
 
-  let username: string | null = null
-  let avatarUrl: string | null = null
+  // let username: string | null = null
+  let username = null
+  // let full_name: string | null = null
+  let full_name = null
+  $: first_name = full_name?.split(' ')[0]
+  // let avatarUrl: string | null = null
+  let avatarUrl = null
+  // let role: string | null = null
+  let position = null
+
+  let data;
+
+  // interface Member {
+  //   id: string,
+  //   username: string,
+  //   full_name: string,
+  //   avatar_url: string,
+  //   position: string | null
+  // }
+
+  // let member: Member
+  let member;
+
+  // import { readable } from 'svelte/store';
+
+  const team = supabase
+    .channel('table-db-changes')
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'team' }, (payload) => {
+      console.log(payload.new)
+      avatarUrl = payload.new.avatar_url;
+      // return data = payload.new;
+      // updateProfile(payload.new);
+    }
+    )
+    .subscribe()
+
+  $: console.log(avatarUrl);
 
   const getProfile = async () => {
     try {
       loading = true
-      const { user } = session
+      const { user } = $page.data.session
 
       const { data, error, status } = await supabase
         .from(`team`)
-        .select(`username, avatar_url`)
+        .select(`full_name, avatar_url`)
         .eq('id', user.id)
         .single()
 
       if (data) {
-        username = data.username
+        full_name = data.full_name
         avatarUrl = data.avatar_url
       }
 
       if (error && status !== 406) throw error
     } catch (error) {
       if (error instanceof Error) {
-        alert(error.message)
+        // alert(error.message)
+        failure(error.message)
       }
     } finally {
       loading = false
     }
   }
 
-  $: if ($page.data.session) {
-    console.log(`running dat shit!`)
-    getProfile()
+  $: $page.data.session, getProfile();
+
+  // const updateProfile = (member: Member) => {
+  const updateProfile = (member) => {
+    avatarUrl = member.avatar_url;
   }
 </script>
 
@@ -64,7 +109,7 @@
         <a href='/dash' class='nav-title'>Company Dashboard</a>
       </div>
       <div class='profile'>
-        <a href='/dash/profile' class='nav-title'>{`Hello, ${username}` || ``}</a>
+        <a href='/dash/profile' class='nav-title'>{`Hello, ${first_name}` || ``}</a>
         <div class='avatar'>
           <Avatar bind:url={avatarUrl} size={36}/>
         </div>
@@ -72,6 +117,7 @@
     </nav>
     <div class='menu'>
       <div class='text'>
+        <a href='/dash'><h3>Home</h3></a>
         <a href='/dash/profile'><h3>Profile</h3></a>
         <h3>Collections</h3>
         <!-- <p>News Editor</p> -->
@@ -83,6 +129,7 @@
       </div>
     </div>
     <main>
+      <!-- <SvelteToast/> -->
       <slot/>
     </main>
   {/if}
@@ -156,7 +203,7 @@
 
   .text {
     display: grid;
-    row-gap: 8px;
+    row-gap: 16px;
   }
 
   main {
