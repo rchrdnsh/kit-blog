@@ -16,9 +16,6 @@ const config = {
 	],
   kit: {
     adapter: adapter({ edge: true }),
-    // files: {
-    //   lib: 'src/library'
-    // },
     alias: {
       $library: 'src/library',
       $content: 'src/content',
